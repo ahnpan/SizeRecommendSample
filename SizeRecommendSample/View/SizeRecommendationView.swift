@@ -1,6 +1,6 @@
 //
-//  ContentView.swift
-//  SizeRecomendApp
+//  SizeRecommendationView.swift
+//  SizeRecommend
 //
 //  Created by Ruby Vega on 9/2/25.
 //

@@ -1,5 +1,5 @@
 //
-//  FreeTrialReminderViewModel.swift
+//  SizeRecommendationViewModel.swift
 //  SizeRecommend
 //
 //  Created by Ruby Vega on 9/2/25.
