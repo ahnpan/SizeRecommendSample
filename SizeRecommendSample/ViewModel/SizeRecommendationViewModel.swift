@@ -20,15 +20,21 @@ final class SizeRecommendationViewModel: ObservableObject {
     }
     
     func onGetSize(height: Double, weight: Double) {
+        let result = Result { try recomendationService.getSize(height: height, weight: weight) }
         
-        guard let recommendedSize = try? recomendationService.getSize(height: height, weight: weight) else {
-            return
+        switch result {
+        case .success(let recommendedSize):
+            self.size = recommendedSize
+        case .failure(let error):
+            self.error = error.localizedDescription
         }
-        
-        self.size = recommendedSize
     }
     
     func onDismiss() {
         size = nil
+    }
+    
+    func onDismissError() {
+        error = nil
     }
 }

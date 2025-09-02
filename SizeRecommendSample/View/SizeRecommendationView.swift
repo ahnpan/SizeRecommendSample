@@ -14,6 +14,7 @@ struct SizeRecommendationView: View {
     @State private var height: Double = 0.0
     @State private var weight: Double = 0.0
     @State private var isShowRecommendation: Bool = false
+    @State private var isShowError: Bool = false
 
     init(viewModel: SizeRecommendationViewModel) {
         self.viewModel = viewModel
@@ -86,6 +87,11 @@ struct SizeRecommendationView: View {
                     
                     isShowRecommendation = true
                 }
+                .onChange(of: viewModel.error) { oldValue, newValue in
+                    guard newValue != nil else { return }
+                    
+                    isShowError = true
+                }
                 .padding()
                 .cornerRadius(20)
                 .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 4)
@@ -100,6 +106,14 @@ struct SizeRecommendationView: View {
                 }
             }, message: {
                 Text("Based on your info, size \(viewModel.size?.name ?? "") is recommended.")
+            })
+            .alert("Error", isPresented: $isShowError, actions: {
+                Button("OK") {
+                    isShowError = false
+                    viewModel.onDismissError()
+                }
+            }, message: {
+                Text(viewModel.error ?? "")
             })
         }
     }
