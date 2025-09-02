@@ -1,0 +1,15 @@
+{
+  "originHash" : "903b29c4a87d54df642e264cff86bfea877a6dba6bc566cbd9fbafabcbd416be",
+  "pins" : [
+    {
+      "identity" : "sizerecommend",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ahnpan/SizeRecommend",
+      "state" : {
+        "branch" : "main",
+        "revision" : "6b274a4d1b6fdc33be6ffac9517d93d69fec1582"
+      }
+    }
+  ],
+  "version" : 3
+}
